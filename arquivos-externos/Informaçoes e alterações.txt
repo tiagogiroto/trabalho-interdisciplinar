@@ -1,0 +1,58 @@
+    1 – A cada acesso ao método createUsuarios() da classe Mock, o programa cria e adiciona
+novamente usuários no sistema, mas isso só precisa ser feito caso ainda não existam usuários
+no sistema quando for roda um teste, por exemplo. Implemente o Singleton na Classe Mock
+com respeito ao atributo da classe chamado ‘usuarios’.  
+
+2 – Não é boa idéia deixar que senha sejam gravadas integralmente no banco de dados de uma
+aplicação web. O Java possui diversas APIs para corrigir isso, algumas são Base64, MD5. Etc.
+Implemente criptografia de senha para a classe Usuario e no controle de seção, para que
+dentro da aplicação a senha sempre esteja criptografada.
+
+3 – Apesar de termos uma API para servir os dados da aplicação web para consultas via HTTP
+usando o método GET, não temos um aplicativo para testar essa funcionalidade. Desenvolva
+um aplicativo móvel que faça essa consulta à sua aplicação web e mostre os resultados na tela.
+Obs. Veja que a implementação da APIServlet sempre devolve um JSON com os dados.
+
+4 – Implemente um menu e um rodapé responsivos para o site com as opções abaixo.
+- Quando não logado: Cadastre-se, Entrar
+- Quando logado: Perfil, Projetos, Cadastre-se, Entrar
+
+Exemplos de interface:
+Versão para usuário não logado Versão para usuário logado
+
+Dica: Implemente o menu e o rodapé como páginas JSP somente com o conteúdo de
+interesse. Depois, use a Tag especial &lt;jsp:include page=”suapagina.jsp”&gt; para adicionar essas
+partes nas outras páginas do projeto (veja o exemplo na página índex.jsp).
+
+5 – Reimplemente a página perfil.jsp para usar Tags do JSTL e substituir as scriptlets com
+comandos For, IF e Else.
+
+6 - Ao invés de derivadas de List, derivas de Map, talvez, seriam mais apropriadas para a
+implementação da lista de dados fictícios construída na classe Mock, uma vez que é possível
+usar uma &quot;chave&quot; de busca, simulando Pimary Key de bancos de dados reais. Assim, reescreva
+essa parte da arquitetura usando um objeto derivado de Map implementando, inclusive, o
+padrão de projeto Iterator para que seja possível percorrer todos os objetos da coleção.
+
+7 – Ainda sobre nossa APIServlet, um de seus problemas é que ela devolve apenas JSON como
+resposta, ou seja, um único formato de dados. É comum na web que esse tipo de API funcione
+para diferentes formatos, como XML, por exemplo. Implemente o padrão de projeto Template
+Method para que a APIServlet possa devolver dados tanto em formato JSON quanto XML, de
+acordo com os parâmetros da requisição.
+
+8 – Na página perfil.jsp temos alguns tratamentos que permitem que uma requisição do tipo
+GET com um parâmetro ‘userId’ (numero de identificação do usuário) possa mostrar os dados
+do perfil de um usuário para alguém que não realizou login na aplicação. Construa uma forma
+de essa funcionalidade também aceitar o nome do usuário como parâmetro para esta consulta
+nesta página.
+
+9 – Ainda sobre a consulta de perfil por requisição do tipo GET, considere a seguinte tentativa
+de acessar a página perfil.jsp:
+http://localhost:8084/TrabalhoFinalBase/perfil.jsp?userId=89
+Veja o resultado:
+
+Desenvolva uma solução que permita ao usuário ver uma mensagem de erro avisando o que
+aconteceu e, além disso, retornar à página índex.jsp.
+
+10 – Nosso projeto não possui até o momento nenhum recurso de auditoria. Por isso,
+implemente um Log que marque os acessos às Servlets do projeto. Para isso, utilize o Logger
+do próprio Java e adicione mensagens informativas a cada acesso dos métodos das Servlets.

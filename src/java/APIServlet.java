@@ -6,6 +6,7 @@
 
 import com.google.gson.Gson;
 import java.io.IOException;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,11 +33,14 @@ public class APIServlet extends HttpServlet {
         
         Gson gson = new Gson();
         String json = gson.toJson(Usuario.dados);
+      
+        
         
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().print(json);        
         response.getWriter().flush();
+      
     }
 
     

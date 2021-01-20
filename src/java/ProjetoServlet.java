@@ -5,6 +5,7 @@
  */
 
 import java.io.IOException;
+import static java.lang.System.out;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +38,7 @@ public class ProjetoServlet extends HttpServlet {
         if(session != null && session.getAttribute("userId") != null){
                     
             //encontra o usuario
+                    out.print("TESTE");
             int userId = (int) session.getAttribute("userId");            
             Usuario user = new Usuario();
             for(Usuario u: Usuario.dados){
